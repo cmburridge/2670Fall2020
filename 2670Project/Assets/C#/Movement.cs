@@ -13,7 +13,8 @@ public class Movement : MonoBehaviour
     public float moveSpeed = 3f;
     public float fastSpeed = 6f;
     public float jumpForce = 10f;
-    public int jumpCountMax;
+    public int jumpCountMax = 2;
+    public int currentJumpCount;
     public float rotateSpeed = 3f;
     private Vector3 rotateMovement;
 
@@ -29,12 +30,21 @@ public class Movement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            _movement.y = jumpForce;
+            if (currentJumpCount != jumpCountMax)
+            {
+                _movement.y = jumpForce; 
+                currentJumpCount++;
+            }
+            else
+            {
+                return;
+            }
         }
 
         if (controller.isGrounded)
         {
             _movement.y = 0;
+            currentJumpCount = 0;
         }
         else
         {
