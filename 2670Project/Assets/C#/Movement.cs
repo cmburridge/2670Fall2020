@@ -6,63 +6,45 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Movement : MonoBehaviour
 {
-    
     private CharacterController controller;
-    private Vector3 _movement;
-    public float gravity = 9.81f;
-    public float moveSpeed = 3f;
-    public float fastSpeed = 6f;
-    public float jumpForce = 10f;
-    public int jumpCountMax = 2;
-    public int currentJumpCount;
-    public float rotateSpeed = 3f;
-    private Vector3 rotateMovement;
+    private Vector3 movement;
 
-    void Start()
+    public float moveSpeed = 5f, rotateSpeed = 5f, gravity = -9.81f, jumpForce = 10f;
+    private float yVar;
+
+    public int jumpCountMax = 2;
+    private int jumpCount;
+    
+    private void Start()
     {
         controller = GetComponent<CharacterController>();
     }
-    
-    void Update()
+
+    private void Update()
     {
-        rotateMovement.y = rotateSpeed * Input.GetAxis("Horizontal");
-        transform.Rotate(rotateMovement);
+        var vInput = Input.GetAxis("Vertical")*moveSpeed;
+        movement.Set(vInput,yVar,0);
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            if (currentJumpCount != jumpCountMax)
-            {
-                _movement.y = jumpForce; 
-                currentJumpCount++;
-            }
-            else
-            {
-                return;
-            }
-        }
+        
+        var hInput = Input.GetAxis("Horizontal")* Time.deltaTime*rotateSpeed;
+        transform.Rotate(0,hInput,0);
 
-        if (controller.isGrounded)
+        yVar += gravity*Time.deltaTime;
+
+        if (controller.isGrounded && movement.y < 0)
         {
-            _movement.y = 0;
-            currentJumpCount = 0;
-        }
-        else
-        {
-            _movement.y -= gravity;
+            yVar = -1f;
+            jumpCount = 0;
         }
 
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButtonDown("Jump") && jumpCount< jumpCountMax)
         {
-            _movement.x = Input.GetAxis("Horizontal")* fastSpeed;
-            _movement.z = Input.GetAxis("Vertical")* fastSpeed;
-        }
-        else
-        {
-            _movement.x = Input.GetAxis("Horizontal")* moveSpeed;
-            _movement.z = Input.GetAxis("Vertical")* moveSpeed;
+            yVar = jumpForce;
+            jumpCount++;
         }
 
-        _movement = transform.TransformDirection(_movement);
-        controller.Move(_movement*Time.deltaTime);
+        movement = transform.TransformDirection(movement);
+        controller.Move(movement * Time.deltaTime);
     }
 }
+
