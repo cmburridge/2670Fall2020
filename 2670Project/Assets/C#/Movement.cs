@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     private CharacterController controller;
     private Vector3 movement;
 
-    public float moveSpeed = 5f, rotateSpeed = 5f, gravity = -9.81f, jumpForce = 10f;
+    public float moveSpeed = 5f, fastSpeed = 10f, rotateSpeed = 5f, gravity = -9.81f, jumpForce = 10f;
     private float yVar;
 
     public int jumpCountMax = 2;
@@ -22,9 +22,17 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        var vInput = Input.GetAxis("Vertical")*moveSpeed;
-        movement.Set(vInput,yVar,0);
-
+        if (Input.GetButton("Fire1"))
+        {
+            var vInput = Input.GetAxis("Vertical")*fastSpeed;
+            movement.Set(vInput,yVar,0);
+        }
+        else
+        {
+            var vInput = Input.GetAxis("Vertical")*moveSpeed;
+            movement.Set(vInput,yVar,0);
+        }
+        
         
         var hInput = Input.GetAxis("Horizontal")* Time.deltaTime*rotateSpeed;
         transform.Rotate(0,hInput,0);
