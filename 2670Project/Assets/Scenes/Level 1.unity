@@ -992,7 +992,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766117102}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.4, y: 5.93, z: 7.36}
+  m_LocalPosition: {x: -11.4, y: 6.5, z: 7.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963194228}
@@ -1135,6 +1135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthValue: {fileID: 11400000, guid: 9491c17850f31d7498504ae82ea22b00, type: 2}
+  damageValue: {fileID: 11400000, guid: b276a426a121153448fd4b403b52dc19, type: 2}
+  baseHealthValue: {fileID: 11400000, guid: 67e0d4210ea1f074d9cc878e788d3d8d, type: 2}
   player: {fileID: 766117102}
 --- !u!65 &1231143746
 BoxCollider:
@@ -1336,6 +1338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthValue: {fileID: 11400000, guid: 9491c17850f31d7498504ae82ea22b00, type: 2}
+  damageValue: {fileID: 11400000, guid: b276a426a121153448fd4b403b52dc19, type: 2}
+  baseHealthValue: {fileID: 11400000, guid: 67e0d4210ea1f074d9cc878e788d3d8d, type: 2}
   player: {fileID: 766117102}
 --- !u!65 &1285773739
 BoxCollider:

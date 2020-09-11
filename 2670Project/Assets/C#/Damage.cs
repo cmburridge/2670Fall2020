@@ -6,16 +6,18 @@ using UnityEngine;
 public class Damage : MonoBehaviour
 {
     public IntData healthValue;
+    public IntData damageValue;
+    public IntData baseHealthValue;
     public GameObject player;
-
+    
     private void Start()
     {
-        healthValue.value = 3;
+        healthValue.value = baseHealthValue.value;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        healthValue.value--;
+        healthValue.value -= damageValue.value;
     }
 
     private void FixedUpdate()
