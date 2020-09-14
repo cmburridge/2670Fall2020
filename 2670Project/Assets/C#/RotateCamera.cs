@@ -8,7 +8,7 @@ public class RotateCamera : MonoBehaviour
     public float rotateSpeed = 5f;
     void Update()
     {
-        var hInput = Input.GetAxis("Mouse X")* Time.deltaTime*rotateSpeed;
+        var hInput = Input.GetAxis("Mouse ScrollWheel")* Time.deltaTime*rotateSpeed;
         transform.Rotate(0,hInput,0);
     }
 }

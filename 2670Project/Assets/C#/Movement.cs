@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
     public FloatData normalSpeed;
 
     public Vector3Data currentSpawnPoint;
-    
+
     public FloatData MoveSpeed => moveSpeed;
 
     public IntData playerJumpCount;
@@ -68,7 +68,7 @@ public class Movement : MonoBehaviour
 
     private void OnEnable()
     {
-        //set the position of player to the location data of the player
+        transform.position = currentSpawnPoint.value;
     }
 }
 

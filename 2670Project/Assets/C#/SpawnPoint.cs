@@ -10,6 +10,7 @@ public class SpawnPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //set the location data of the player to the current spawnPoint
+        vData.SetValueFromTransform(transform.position);
     }
+    
 }
