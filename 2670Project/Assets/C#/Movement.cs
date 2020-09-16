@@ -65,10 +65,5 @@ public class Movement : MonoBehaviour
         movement = transform.TransformDirection(movement);
         controller.Move(movement * Time.deltaTime);
     }
-
-    private void OnEnable()
-    {
-        transform.position = currentSpawnPoint.value;
-    }
 }
 
