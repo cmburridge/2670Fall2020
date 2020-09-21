@@ -6,8 +6,20 @@ using UnityEngine;
 public class Activate : MonoBehaviour
 {
     public GameObject puzzleObject;
+    private bool objState = true;
+
     private void OnTriggerEnter(Collider other)
     {
-        puzzleObject.SetActive(true);
+        if (objState == true)
+        {
+           puzzleObject.SetActive(true);
+           objState = false;
+        }
+        else
+        {
+            puzzleObject.SetActive(false);
+            objState = true;
+        }
+
     }
 }
