@@ -6,7 +6,7 @@ public class CameraSwitch : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire2"))
         {
             Camera.main.orthographic = true;
         }
