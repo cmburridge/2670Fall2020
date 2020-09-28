@@ -15,8 +15,6 @@ public class Movement : MonoBehaviour
     public FloatData moveSpeed, fastSpeed;
     public FloatData normalSpeed;
 
-    public Vector3Data currentSpawnPoint;
-
     public FloatData MoveSpeed => moveSpeed;
 
     public IntData playerJumpCount;

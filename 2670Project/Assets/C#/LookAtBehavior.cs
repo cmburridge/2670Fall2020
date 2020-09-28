@@ -1,9 +1,16 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LookAtBehavior : MonoBehaviour
 {
+    public Transform objLocation;
+    private void Update()
+    {
+        transform.LookAt(objLocation);
+    }
+
     public void OnLook(Vector3Data obj)
     {
         Transform transform1;
