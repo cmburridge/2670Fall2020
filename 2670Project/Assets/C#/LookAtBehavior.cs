@@ -5,12 +5,24 @@ using UnityEngine;
 
 public class LookAtBehavior : MonoBehaviour
 {
+    public float speed = 3f;
     public Transform objLocation;
-    private void Update()
+    public bool enraged = false;
+
+    public void LocatePlayer()
     {
-        transform.LookAt(objLocation);
+        enraged = true;
     }
 
+     private void FixedUpdate()
+        {
+            if (enraged == true)
+            {
+                transform.LookAt(objLocation);
+                transform.Translate(0,0,speed * Time.deltaTime);
+            }
+        }
+     
     public void OnLook(Vector3Data obj)
     {
         Transform transform1;
