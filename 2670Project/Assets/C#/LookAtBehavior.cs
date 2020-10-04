@@ -10,31 +10,28 @@ public class LookAtBehavior : MonoBehaviour
     public float timer = 3f;
     public Transform objLocation;
     public bool enraged = false;
+    public Animator rotate;
     public void LocatePlayer()
     {
         enraged = true;
     }
-    
+
+    public void LosePlayer()
+    {
+        enraged = false;
+    }
+
     private void FixedUpdate()
         {
             if (enraged == true)
             {
                 transform.LookAt(objLocation);
                 transform.Translate(0,0,speed * Time.fixedDeltaTime);
+                rotate.enabled = false;
             }
-
-            if (enraged == false)
+            else
             {
-               if ( this.tag == "Enemy")
-               {
-                   timer -= Time.fixedDeltaTime;
-                   if (timer <= 0f)
-                   {
-                       timer += 3f;
-                       transform.Rotate(0,90,0);
-                       Debug.Log("searching");
-                   }
-               } 
+                rotate.enabled = true;
             }
         }
      

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class TriggerEventBehavior : MonoBehaviour
 {
-   public UnityEvent triggerEnterEvent;
+   public UnityEvent triggerEnterEvent, triggerExitEvent;
    public float delayTime = 1f;
    private WaitForSeconds waitObj;
 
@@ -18,5 +18,10 @@ public class TriggerEventBehavior : MonoBehaviour
    {
       yield return waitObj;
       triggerEnterEvent.Invoke();
+   }
+
+   private void OnTriggerExit(Collider other)
+   {
+      triggerExitEvent.Invoke();
    }
 }

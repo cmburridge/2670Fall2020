@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 394082018}
   - component: {fileID: 394082021}
   - component: {fileID: 394082020}
-  - component: {fileID: 394082019}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -26,9 +25,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394082017}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.18, z: 0}
-  m_LocalScale: {x: 0.77343, y: 0.77343, z: 1.8274603}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.18, z: 0.62}
+  m_LocalScale: {x: 0.77343, y: 0.77343, z: 1.205967}
   m_Children: []
   m_Father: {fileID: 2225193730967755309}
   m_RootOrder: 1
@@ -80,19 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &394082019
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 394082017}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &507298107
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +104,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507298107}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.11, y: 0.43, z: 0.03}
   m_LocalScale: {x: 1.0741, y: 1.0741, z: 1.0741}
   m_Children: []
@@ -151,7 +137,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delayTime: 0
+  triggerExitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2110234445}
+        m_MethodName: LosePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  delayTime: 0.5
 --- !u!65 &507298109
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -163,8 +163,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.296905, y: 1, z: 11.0954895}
-  m_Center: {x: -0.087023474, y: 0, z: 5.700281}
+  m_Size: {x: 3.9819334, y: 1, z: 13.78325}
+  m_Center: {x: -0.08702337, y: 0, z: 6.337676}
 --- !u!1 &8616584122544814137
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 2638309955764201249}
   - component: {fileID: 7304221850348799333}
   - component: {fileID: 2110234445}
+  - component: {fileID: 6882886580591892568}
   m_Layer: 0
   m_Name: RotateEnemy
   m_TagString: Enemy
@@ -195,7 +196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8616584122544814137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.36753464, y: 6.4, z: 2.9428253}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0741, y: 1.0741, z: 1.0741}
   m_Children:
   - {fileID: 507298108}
@@ -314,6 +315,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e982b60296f0c4241be3ef7e714fac45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 8
+  timer: 3
   objLocation: {fileID: 0}
   enraged: 0
+  rotate: {fileID: 6882886580591892568}
+--- !u!95 &6882886580591892568
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8616584122544814137}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1283827d192c2f84fa5c4d04cd59c612, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 9.413407
+  m_Radius: 12.0336895
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &283558862
 MonoBehaviour:
@@ -71,7 +71,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  delayTime: 0
+  triggerExitEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1325659212692565022}
+        m_MethodName: LosePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  delayTime: 0.5
 --- !u!1 &1325659212692565016
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,9 +182,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e982b60296f0c4241be3ef7e714fac45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  speed: 7
+  timer: 3
   objLocation: {fileID: 0}
   enraged: 0
+  rotate: {fileID: 0}
 --- !u!114 &1325659212692565019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +213,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  triggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
   delayTime: 2
 --- !u!54 &1285773745
 Rigidbody:
