@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 12.0336895
+  m_Radius: 8.421101
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &283558862
 MonoBehaviour:
@@ -101,6 +101,8 @@ GameObject:
   - component: {fileID: 1325659212692565019}
   - component: {fileID: 1285773745}
   - component: {fileID: 1285773739}
+  - component: {fileID: 5596180029392439378}
+  - component: {fileID: -8637840778746000974}
   m_Layer: 0
   m_Name: Wander Enemy
   m_TagString: Untagged
@@ -117,7 +119,7 @@ Transform:
   m_GameObject: {fileID: 1325659212692565016}
   m_LocalRotation: {x: 0, y: -0.4918766, z: 0, w: 0.87066495}
   m_LocalPosition: {x: 16.445454, y: 6.53, z: -2.8866434}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1.8478, z: 1}
   m_Children:
   - {fileID: 283558861}
   m_Father: {fileID: 0}
@@ -186,7 +188,7 @@ MonoBehaviour:
   timer: 3
   objLocation: {fileID: 0}
   enraged: 0
-  rotate: {fileID: 0}
+  rotate: {fileID: 5596180029392439378}
 --- !u!114 &1325659212692565019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,3 +257,35 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &5596180029392439378
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325659212692565016}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &-8637840778746000974
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325659212692565016}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 1, z: 1.0000001}
+  m_Center: {x: 0, y: 0, z: 0}
