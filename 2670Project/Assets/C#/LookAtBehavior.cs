@@ -10,7 +10,7 @@ public class LookAtBehavior : MonoBehaviour
     public float timer = 3f;
     public Transform objLocation;
     public bool enraged = false;
-    public Animator rotate;
+    public Animator enemyAnimate;
     public void LocatePlayer()
     {
         enraged = true;
@@ -27,11 +27,11 @@ public class LookAtBehavior : MonoBehaviour
             {
                 transform.LookAt(objLocation);
                 transform.Translate(0,0,speed * Time.fixedDeltaTime);
-                rotate.enabled = false;
+                enemyAnimate.enabled = false;
             }
             else
             {
-                rotate.enabled = true;
+                enemyAnimate.enabled = true;
             }
         }
      

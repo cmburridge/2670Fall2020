@@ -64,21 +64,5 @@ public class Movement : MonoBehaviour
         controller.Move(movement * Time.deltaTime);
         
     }
-
-    private Vector3 direction = Vector3.zero;
-    public float pushPower = 3f;
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        var body = hit.collider.attachedRigidbody;
-
-        if (body == null)
-        {
-            return;
-        }
-        
-        direction.Set(hit.moveDirection.x, 0, hit.moveDirection.z);
-        var pushDirection = direction * pushPower;
-        body.velocity = pushDirection;
-    }
 }
 

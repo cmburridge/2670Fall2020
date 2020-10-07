@@ -20,8 +20,9 @@ public class TriggerEventBehavior : MonoBehaviour
       triggerEnterEvent.Invoke();
    }
 
-   private void OnTriggerExit(Collider other)
+   private IEnumerator OnTriggerExit(Collider other)
    {
+      yield return waitObj;
       triggerExitEvent.Invoke();
    }
 }
