@@ -14,7 +14,7 @@ public class CharacterAnim : MonoBehaviour
 
    private void Update()
    {
-      if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+      if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
       {
          anim.SetBool("Is running", true);
       }
@@ -23,8 +23,7 @@ public class CharacterAnim : MonoBehaviour
          anim.SetBool("Is running", false);
       }
       
-      if (Input.GetKey
-         (KeyCode.UpArrow))
+      if (Input.GetButton("Jump"))
       {
          anim.SetBool("Is jumping", true);
       }
